@@ -56,7 +56,7 @@ body {
   background: #ffffff;
   position: absolute;
   top: 12px;
-  left: 20px;
+  left: 30px;
 }
 
 .top {
@@ -164,4 +164,44 @@ h1 {
   align-items: center;
   gap: 10px;
   padding-left: 80px;
+}
+
+p {
+  font-size: 12px;
+}
+
+input {
+  width: 125px;
+  border: 1px solid #11c3ea;
+  padding: 2px;
+  font-size: 12px;
+}
+
+input::placeholder {
+  color: #11c3ea;
+  font-size: 12px;
+}
+
+.inp {
+  margin: 50px 0 30px 40px;
+  width: 600px;
+  display: grid;
+  justify-content: center;
+  gap: 20px;
+  grid-template-columns: auto auto auto auto;
+}
+.spd {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+button {
+  border: none;
+  width: 120px;
+  height: 30px;
+  border-radius: 10px;
+  background: #11c3ea;
+  font-weight: bold;
+  color: #ffffff;
 }
