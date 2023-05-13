@@ -21,3 +21,49 @@ const journey = () => {
 };
 
 btn.addEventListener("click", journey);
+
+const totalPrice = () => {
+  const people = Number(document.querySelector("#people").value);
+  const nights = Number(document.querySelector("#nights").value);
+  const from = document.querySelector("#from").value;
+  const to = document.querySelector("#to").value;
+  const flights = Number(document.querySelector("#flights").value);
+  const transport = Number(document.querySelector("#transport").value);
+  const hotel = Number(document.querySelector("#hotel").value);
+  const food = Number(document.querySelector("#food").value);
+  const visa = Number(document.querySelector("#visa").value);
+  const internet = Number(document.querySelector("#internet").value);
+  const attractions = Number(document.querySelector("#attractions").value);
+  const souvenirs = Number(document.querySelector("#souvenirs").value);
+  const priceDescribtion = document.querySelector("h2");
+
+  const sum = (
+    flights +
+    hotel / people +
+    visa +
+    transport +
+    food * (nights + 1) +
+    internet +
+    souvenirs +
+    attractions
+  ).toFixed();
+
+  setTimeout(() => {
+    priceDescribtion.innerHTML =
+      "A trip from:" +
+      " " +
+      from +
+      " " +
+      "to" +
+      " " +
+      to +
+      " " +
+      "will cost" +
+      " " +
+      sum +
+      " " +
+      "per person. Price includes:";
+  }, 4000);
+};
+
+btn.addEventListener("click", totalPrice);

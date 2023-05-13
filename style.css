@@ -208,6 +208,12 @@ button {
   background: #11c3ea;
   font-weight: bold;
   color: #ffffff;
+  cursor: pointer;
+  transition: background 0.5s linear;
+}
+
+button:hover {
+  background: #369729;
 }
 
 .describ {
