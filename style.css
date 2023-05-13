@@ -50,13 +50,14 @@ body {
 }
 
 .logofly {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 80px;
   height: 80px;
   border-radius: 50%;
   background: #ffffff;
-  position: absolute;
-  top: 12px;
-  left: 30px;
+  margin-top: 10px;
 }
 
 .top {
@@ -86,6 +87,9 @@ body {
   height: 50px;
   background: #11c3ea;
   border-top-right-radius: 40px;
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
 }
 
 h1 {
@@ -163,7 +167,6 @@ h1 {
   justify-content: center;
   align-items: center;
   gap: 10px;
-  padding-left: 80px;
 }
 
 p {
@@ -183,7 +186,7 @@ input::placeholder {
 }
 
 .inp {
-  margin: 50px 0 30px 40px;
+  margin: 30px 0;
   width: 600px;
   display: grid;
   justify-content: center;
@@ -198,10 +201,145 @@ input::placeholder {
 }
 button {
   border: none;
+  margin-top: 10px;
   width: 120px;
   height: 30px;
   border-radius: 10px;
   background: #11c3ea;
   font-weight: bold;
   color: #ffffff;
+}
+
+.describ {
+  height: 310px;
+  border-bottom-right-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 10px;
+}
+
+h2 {
+  font-size: 12px;
+  width: 140px;
+  font-weight: 400;
+  text-align: center;
+}
+
+ul {
+  width: 110px;
+}
+
+li {
+  font-size: 12px;
+}
+
+.begin {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 3px solid #11c3ea;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.circle {
+  display: none;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: rgb(28, 104, 151, 0);
+  border: 3px solid #11c3ea;
+}
+
+.circle-two {
+  display: none;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: #11c3ea;
+  border: 3px solid #11c3ea;
+}
+
+.round {
+  display: none;
+  position: relative;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 3px solid #11c3ea;
+  align-items: center;
+  justify-content: center;
+}
+
+.fa-check {
+  font-size: 20px;
+  color: white;
+}
+
+.fa-plane-up.static {
+  font-size: 20px;
+  right: 12px;
+}
+
+.fa-plane-up {
+  font-size: 20px;
+  position: absolute;
+  right: -10px;
+}
+
+.fa-plane-up.start {
+  font-size: 20px;
+  right: 12px;
+  animation: departure 4s linear;
+}
+
+@keyframes departure {
+  0% {
+    transform: scale(0.5);
+  }
+  25% {
+    transform: rotate(90deg);
+  }
+  50% {
+    transform: translateX(22px);
+  }
+  100% {
+    transform: rotate(-90deg);
+  }
+}
+
+@keyframes jet {
+  0% {
+    transform: rotate(0turn);
+  }
+  100% {
+    transform: rotate(1turn);
+  }
+}
+
+@keyframes travel {
+  0% {
+    background: rgb(17, 195, 234, 0);
+  }
+  25% {
+    background: rgb(17, 195, 234, 0.25);
+  }
+  50% {
+    background: rgb(17, 195, 234, 0.5);
+  }
+  75% {
+    background: rgb(17, 195, 234, 0.75);
+  }
+  100% {
+    background: rgb(17, 195, 234);
+  }
 }
