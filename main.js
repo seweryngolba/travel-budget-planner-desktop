@@ -44,6 +44,7 @@ const totalPrice = () => {
   const inter = document.querySelector("#inter");
   const atrr = document.querySelector("#atrr");
   const sou = document.querySelector("#sou");
+  const inclu = document.querySelector("ul");
 
   const sum = (
     flights +
@@ -72,14 +73,16 @@ const totalPrice = () => {
       " " +
       "per person. Price includes:";
 
-    fl.innerHTML = "Flights" + " " + flights;
-    ho.innerHTML = "Hotel" + " " + hotel / people;
-    fo.innerHTML = "Food" + " " + food * (nights + 1);
-    tr.innerHTML = "Transport" + " " + transport;
-    vi.innerHTML = "Visa" + " " + visa;
-    inter.innerHTML = "Internet" + " " + internet;
-    atrr.innerHTML = "Attractions" + " " + attractions;
-    sou.innerHTML = "Souvenirs" + " " + souvenirs;
+    fl.innerHTML = "Flights" + " " + "-" + " " + flights;
+    ho.innerHTML = "Hotel" + " " + "-" + " " + (hotel / people).toFixed();
+    fo.innerHTML = "Food" + " " + "-" + " " + food * (nights + 1);
+    tr.innerHTML = "Transport" + " " + "-" + " " + transport;
+    vi.innerHTML = "Visa" + " " + "-" + " " + visa;
+    inter.innerHTML = "Internet" + " " + "-" + " " + internet;
+    atrr.innerHTML = "Attractions" + " " + "-" + " " + attractions;
+    sou.innerHTML = "Souvenirs" + " " + "-" + " " + souvenirs;
+
+    inclu.classList.add("disc");
   }, 4000);
 };
 
