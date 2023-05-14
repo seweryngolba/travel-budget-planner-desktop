@@ -36,6 +36,14 @@ const totalPrice = () => {
   const attractions = Number(document.querySelector("#attractions").value);
   const souvenirs = Number(document.querySelector("#souvenirs").value);
   const priceDescribtion = document.querySelector("h2");
+  const fl = document.querySelector("#fl");
+  const ho = document.querySelector("#ho");
+  const fo = document.querySelector("#fo");
+  const tr = document.querySelector("#tr");
+  const vi = document.querySelector("#vi");
+  const inter = document.querySelector("#inter");
+  const atrr = document.querySelector("#atrr");
+  const sou = document.querySelector("#sou");
 
   const sum = (
     flights +
@@ -63,6 +71,15 @@ const totalPrice = () => {
       sum +
       " " +
       "per person. Price includes:";
+
+    fl.innerHTML = "Flights" + " " + flights;
+    ho.innerHTML = "Hotel" + " " + hotel / people;
+    fo.innerHTML = "Food" + " " + food * (nights + 1);
+    tr.innerHTML = "Transport" + " " + transport;
+    vi.innerHTML = "Visa" + " " + visa;
+    inter.innerHTML = "Internet" + " " + internet;
+    atrr.innerHTML = "Attractions" + " " + attractions;
+    sou.innerHTML = "Souvenirs" + " " + souvenirs;
   }, 4000);
 };
 
