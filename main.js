@@ -1,28 +1,53 @@
-const btn = document.querySelector("#btn");
-const flyStart = document.querySelector(".round");
-const fly = document.querySelector(".circle");
-const land = document.querySelector(".circle-two");
-const begin = document.querySelector(".begin");
+const validateInputs = () => {
+  const numericInputs = [
+    { inputId: "people", errorMsgId: "people-error" },
+    { inputId: "nights", errorMsgId: "nights-error" },
+    { inputId: "flights", errorMsgId: "flights-error" },
+    { inputId: "transport", errorMsgId: "transport-error" },
+    { inputId: "hotel", errorMsgId: "hotel-error" },
+    { inputId: "food", errorMsgId: "food-error" },
+    { inputId: "visa", errorMsgId: "visa-error" },
+    { inputId: "internet", errorMsgId: "internet-error" },
+    { inputId: "attractions", errorMsgId: "attractions-error" },
+    { inputId: "souvenirs", errorMsgId: "souvenirs-error" },
+  ];
 
-const journey = () => {
-  begin.style.display = "none";
-  flyStart.style.display = "flex";
-  setTimeout(() => {
-    flyStart.style.display = "none";
-    fly.style.display = "flex";
-    fly.style.animation = "jet 2s ease 1 reverse, travel 2s linear 1";
-    setTimeout(() => {
-      fly.style.display = "none";
-      land.style.display = "flex";
-      btn.innerHTML = "DONE";
-    }, 2000);
-  }, 2000);
-  btn.removeEventListener("click", journey);
+  let isValid = true;
+
+  for (const inputConfig of numericInputs) {
+    const input = document.querySelector(`#${inputConfig.inputId}`);
+    const value = Number(input.value);
+    const errorLabel = document.querySelector(`#${inputConfig.errorMsgId}`);
+
+    if (inputConfig.inputId === "people") {
+      if (value < 1) {
+        isValid = false;
+        errorLabel.textContent = "Value must be at least 1 !";
+        input.classList.add("error-input");
+      } else {
+        errorLabel.textContent = "";
+        input.classList.remove("error-input");
+      }
+    } else {
+      if (value < 0) {
+        isValid = false;
+        errorLabel.textContent = "Value cannot be less than 0.";
+        input.classList.add("error-input");
+      } else {
+        errorLabel.textContent = "";
+        input.classList.remove("error-input");
+      }
+    }
+  }
+
+  return isValid;
 };
 
-btn.addEventListener("click", journey);
-
 const totalPrice = () => {
+  if (!validateInputs()) {
+    return;
+  }
+
   const people = Number(document.querySelector("#people").value);
   const nights = Number(document.querySelector("#nights").value);
   const from = document.querySelector("#from").value;
@@ -82,8 +107,46 @@ const totalPrice = () => {
     atrr.innerHTML = "Attractions" + " " + "-" + " " + attractions;
     sou.innerHTML = "Souvenirs" + " " + "-" + " " + souvenirs;
 
+    const resetBtn = document.createElement("button");
+    resetBtn.textContent = "Reset";
+    resetBtn.classList.add("reset-button");
+    resetBtn.addEventListener("click", resetInputs);
+
+    inclu.appendChild(resetBtn);
+
     inclu.classList.add("disc");
   }, 4000);
 };
 
+const resetInputs = () => {
+  window.location.reload();
+};
+
+const btn = document.querySelector("#btn");
 btn.addEventListener("click", totalPrice);
+
+const flyStart = document.querySelector(".round");
+const fly = document.querySelector(".circle");
+const land = document.querySelector(".circle-two");
+const begin = document.querySelector(".begin");
+
+const journey = () => {
+  if (!validateInputs()) {
+    return;
+  }
+  begin.style.display = "none";
+  flyStart.style.display = "flex";
+  setTimeout(() => {
+    flyStart.style.display = "none";
+    fly.style.display = "flex";
+    fly.style.animation = "jet 2s ease 1 reverse, travel 2s linear 1";
+    setTimeout(() => {
+      fly.style.display = "none";
+      land.style.display = "flex";
+      btn.innerHTML = "DONE";
+    }, 2000);
+  }, 2000);
+  btn.removeEventListener("click", journey);
+};
+
+btn.addEventListener("click", journey);

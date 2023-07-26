@@ -171,6 +171,7 @@ h1 {
 
 p {
   font-size: 12px;
+  font-weight: bold;
 }
 
 input {
@@ -199,7 +200,7 @@ input::placeholder {
   justify-content: center;
   flex-direction: column;
 }
-button {
+.check-button {
   border: none;
   margin-top: 10px;
   width: 120px;
@@ -212,8 +213,20 @@ button {
   transition: background 0.5s linear;
 }
 
-button:hover {
+.check-button:hover {
   background: #369729;
+}
+
+.reset-button {
+  border: none;
+  margin-top: 5px;
+  width: 100px;
+  height: 24px;
+  border-radius: 10px;
+  background: #11c3ea;
+  font-weight: bold;
+  color: #ffffff;
+  cursor: pointer;
 }
 
 .describ {
@@ -311,6 +324,18 @@ li {
   font-size: 20px;
   right: 12px;
   animation: departure 4s linear;
+}
+
+.people,
+.nights {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.labels {
+  font-size: 9px;
+  color: red;
 }
 
 @keyframes departure {

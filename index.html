@@ -31,11 +31,23 @@
           <div class="inp">
             <div class="people">
               <p>Number of travelers:</p>
-              <input type="number" id="people" placeholder="0" />
+              <input
+                type="number"
+                id="people"
+                oninput="this.value = Math.round(this.value);"
+                placeholder="0"
+              />
+              <label class="labels" id="people-error"></label>
             </div>
             <div class="nights">
               <p>Nights:</p>
-              <input type="number" id="nights" placeholder="0" />
+              <input
+                type="number"
+                id="nights"
+                oninput="this.value = Math.round(this.value);"
+                placeholder="0"
+              />
+              <label class="labels" id="nights-error"></label>
             </div>
             <div class="from">
               <p>From:</p>
@@ -46,39 +58,47 @@
               <input type="text" id="to" placeholder="Tokyo" />
             </div>
             <div class="flights">
-              <p>Flights:</p>
+              <p>Flights price(person):</p>
               <input type="number" id="flights" placeholder="0$" />
+              <label class="labels" id="flights-error"></label>
             </div>
             <div class="transport">
-              <p>Transport:</p>
+              <p>Transport(total):</p>
               <input type="number" id="transport" placeholder="0$" />
+              <label class="labels" id="transport-error"></label>
             </div>
             <div class="hotel">
-              <p>Hotel:</p>
+              <p>Hotel(total):</p>
               <input type="number" id="hotel" placeholder="0$" />
+              <label class="labels" id="hotel-error"></label>
             </div>
             <div class="food">
-              <p>Food/per day:</p>
+              <p>Food(person)/per day:</p>
               <input type="number" id="food" placeholder="0$" />
+              <label class="labels" id="food-error"></label>
             </div>
             <div class="visa">
               <p>Visa:</p>
               <input type="number" id="visa" placeholder="0$" />
+              <label class="labels" id="visa-error"></label>
             </div>
             <div class="internet">
-              <p>Internet:</p>
+              <p>Internet/Phone:</p>
               <input type="number" id="internet" placeholder="0$" />
+              <label class="labels" id="internet-error"></label>
             </div>
             <div class="attractions">
-              <p>Attractions:</p>
+              <p>Attractions(total):</p>
               <input type="number" id="attractions" placeholder="0$" />
+              <label class="labels" id="attractions-error"></label>
             </div>
             <div class="souvenirs">
-              <p>Souvenirs:</p>
+              <p>Souvenirs(total):</p>
               <input type="number" id="souvenirs" placeholder="0$" />
+              <label class="labels" id="souvenirs-error"></label>
             </div>
           </div>
-          <button id="btn">CHECK</button>
+          <button class="check-button" id="btn">CHECK</button>
         </div>
       </div>
       <div class="right">
@@ -95,7 +115,7 @@
           </div>
         </div>
         <div class="describ">
-          <h2></h2>
+          <h2 id="price-description"></h2>
           <ul class="prices">
             <li id="fl"></li>
             <li id="ho"></li>
